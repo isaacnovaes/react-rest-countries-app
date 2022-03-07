@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+
+:root {
+	--dark-blue: hsl(209, 23%, 22%); //(Dark Mode Elements)
+	--very-dark-blue-bg: hsl(207, 26%, 17%); //(Dark Mode Background)
+	--very-dark-blue-text: hsl(200, 15%, 8%); //(Light Mode Text)
+	--dark-gray: hsl(0, 0%, 52%); //(Light Mode Input)
+	--very-light-gray: hsl(0, 0%, 98%); //(Light Mode Background)
+	--white: hsl(0, 0%, 100%); //(Dark Mode Text & Light Mode Elements)
+
+	--font-family: "Nunito Sans", sans-serif;
+
+	--size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
+	--size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
+	--size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+	--size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
+	--size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
+	--size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
+	--size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+	--size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+}
+
+html {
+	box-sizing: border-box;
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
+	font-size: 14px;
+	font-family: var(--font-family);
+	font-weight: 300;
+
+	&:focus-within {
+		scroll-behavior: smooth;
+	}
+}
+
+/**
+ * Make all elements from the DOM inherit from the parent box-sizing
+ * Since `*` has a specificity of 0, it does not override the `html` value
+ * making all elements inheriting from the root box-sizing value
+ * See: https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ */
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+	margin: 0;
+	padding: 0;
+	font-size: 100%;
+}
+
+body {
+	min-height: 100vh;
+}
+
+/* Remove the border on images inside links in IE 10. */
+img {
+	border-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+
+button,
+input,
+textarea {
+	appearance: none;
+}
+
+/* Remove all animations, transitions, and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+	html:focus-within {
+		scroll-behavior: auto;
+	}
+
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
+/* Scroll bar style 
+html::-webkit-scrollbar {
+	width: 10px;
+}
+html::-webkit-scrollbar-track {
+	background: rgb(78, 77, 77);
+}
+html::-webkit-scrollbar-thumb {
+	background: rgba(131, 131, 131, 0.746);
+}
+html::-webkit-scrollbar-thumb:hover {
+	background: rgb(56, 56, 56);
+}
+html::-webkit-scrollbar-thumb:active {
+	background: rgba(27, 27, 27, 0.8);
+	border-radius: 10px;
+}
+*/
