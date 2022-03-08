@@ -1,50 +1,41 @@
-import React, { useEffect } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import React, { useContext } from "react";
+import styles from "./App.module.scss";
+import appContext from "./context/app-context.js";
+import Header from "./components/Header/Header";
+import Countries from "./pages/Countries/Countries.js";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { formatCountries } from "./helpers/helperFunctions.js";
 
 function App() {
-	useEffect(() => {
-		const fetchCountries = async () => {
-			const request = await fetch("https://restcountries.com/v3.1/all");
-			const data = await request.json();
+	const context = useContext(appContext);
 
-			const allCountries = data.map(country => ({
-				borders: country.borders,
-				capital: country.capital,
-				region: country.region,
-				subRegion: country.subregion,
-				currencies: country.currencies,
-				languages: country.languages,
-				flags: country.flags.svg,
-				map: country.maps.googleMaps,
-				name: country.name.common,
-				nativeName: country.name.nativeName,
-				population: country.population,
-				tld: country.tld,
-			}));
+	const { updateCountries } = useContext(appContext);
 
-			console.log(data[0]);
-		};
+	const fetchCountries = async () => {
+		const request = await fetch("https://restcountries.com/v3.1/all");
+		const data = await request.json();
+		const allCountries = data.map(formatCountries);
+		updateCountries(allCountries);
+	};
+	
+	fetchCountries();
 
-		fetchCountries();
-	}, []);
+	const appClasses = `${styles.App} ${
+		context.theme === "dark" ? styles.AppDark : ""
+	}`;
 
 	return (
-		<div className="App">
-			<header className="App-header">
-				<img src={logo} className="App-logo" alt="logo" />
-				<p>
-					Edit <code>src/App.js</code> and save to reload.
-				</p>
-				<a
-					className="App-link"
-					href="https://reactjs.org"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					Learn React
-				</a>
-			</header>
+		<div className={appClasses}>
+			<Header />
+			<main>
+				<Routes>
+					<Route path="/" element={<Navigate to="/countries" />} />
+					<Route
+						path="/countries"
+						element={<Countries countries={context.countries} />}
+					/>
+				</Routes>
+			</main>
 		</div>
 	);
 }

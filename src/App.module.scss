@@ -1,0 +1,15 @@
+@use "./mixins.module.scss";
+
+.App {
+	background-color: var(--very-light-gray);
+	min-height: 100vh;
+	transition: 0.5s;
+
+	main {
+		@include mixins.container;
+	}
+}
+
+.AppDark {
+	background-color: var(--very-dark-blue-bg);
+}
