@@ -1,0 +1,68 @@
+// --dark-blue: hsl(209, 23%, 22%); //(Dark Mode Elements)
+// --white: hsl(0, 0%, 100%); //(Light Mode Elements & Dark Mode Text )
+// --very-dark-blue-bg: hsl(207, 26%, 17%); //(Dark Mode Background)
+// --very-light-gray: hsl(0, 0%, 98%); //(Light Mode Background)
+// --very-dark-blue-text: hsl(200, 15%, 8%); //(Light Mode Text)
+// --dark-gray: hsl(0, 0%, 52%); //(Light Mode Input)
+// --box-shadow-light: hsla(0, 0%, 52%, 0.287); // Light Mode Box Shadow
+// --box-shadow-dark: hsla(0, 0%, 0%, 0.226); // Dark Mode Box Shadow
+
+.CountryHome {
+	// width/height = 380/240
+	$width: 320px;
+	display: block;
+	width: $width;
+	border-radius: 0.8rem;
+	box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+	overflow: hidden;
+	background-color: var(--white);
+	transition: 0.5s;
+
+	&:hover {
+		transform: scale(1.05);
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		height: calc($width * 240 / 380);
+		object-fit: cover;
+		object-position: center;
+	}
+
+	.CountryDetails {
+		padding: 2rem;
+		color: var(--very-dark-blue-text);
+		transition: color 0.5s;
+
+		h1 {
+			font-weight: 800;
+			font-size: large;
+			margin-bottom: 15px;
+		}
+
+		.Details {
+			display: flex;
+			flex-direction: column;
+			row-gap: 7px;
+
+			.Detail {
+				font-weight: 300;
+				font-size: var(--size-400);
+
+				.DetailBold {
+					font-weight: 600;
+				}
+			}
+		}
+	}
+}
+
+.CountryHomeDark {
+	background-color: var(--dark-blue);
+	box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+
+	.CountryDetails {
+		color: var(--white);
+	}
+}
