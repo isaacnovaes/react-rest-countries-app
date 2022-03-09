@@ -47,10 +47,8 @@ Users should be able to:
 - Semantic HTML5 markup
 - CSS custom properties
 - Flexbox
-- CSS Grid
 - [SASS](https://sass-lang.com/)
 - [React](https://reactjs.org/) - JS library
-- [Styled Components](https://styled-components.com/) - For styles
 - React Router v6
 - [REST countries API](https://restcountries.com/#api-endpoints-v2)
 
@@ -66,13 +64,13 @@ To see how you can add code snippets, see below:
 
 ```css
 .proud-of-this-css {
- color: papayawhip;
+color: papayawhip;
 }
 ```
 
 ```js
 const proudOfThisFunc = () => {
- console.log("🎉");
+console.log("🎉");
 };
 ```
 
