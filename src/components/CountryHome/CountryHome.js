@@ -11,14 +11,14 @@ export default function CountryHome({ countryData }) {
 	}`;
 
 	return (
-		<Link to={`/country/:${countryData.name}`} className={countryHomeClasses}>
+		<Link to={`/countries/${countryData.name}`} className={countryHomeClasses}>
 			<img src={countryData.flag} alt={`${countryData.name} flag`} />
 			<div className={styles.CountryDetails}>
 				<h1>{countryData.name}</h1>
 				<div className={styles.Details}>
 					<span className={styles.Detail}>
 						<span className={styles.DetailBold}>Population: </span>
-						{countryData.population}
+						{countryData.population.toLocaleString()}
 					</span>
 					<span className={styles.Detail}>
 						<span className={styles.DetailBold}>Region: </span>

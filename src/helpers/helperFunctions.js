@@ -49,7 +49,7 @@ const formatCountries = country => {
 		map: country.maps.googleMaps,
 		name: country.name.common,
 		nativeName,
-		population: country.population.toLocaleString(),
+		population: country.population,
 		tld,
 	};
 };

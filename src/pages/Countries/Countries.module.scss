@@ -1,9 +1,14 @@
 @use "../../mixins.module.scss";
 
-.Countries {
+.CountriesSection {
 	display: flex;
-	flex-wrap: wrap;
-	justify-content: center;
-	column-gap: 50px;
+	flex-direction: column;
 	row-gap: 50px;
+
+	.Countries {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: 50px;
+	}
 }

@@ -1,11 +1,49 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import styles from "./Countries.module.scss";
 import CountryHome from "../../components/CountryHome/CountryHome";
+import SearchCountry from "../../components/SeachCountry/SearchCountry";
+import appContext from "../../context/app-context";
 
-export default function Countries({ countries }) {
-	const showCountries = countries
-		.filter((_, index) => index < 10)
-		.map(country => <CountryHome key={country.name} countryData={country} />);
+export default function Countries() {
+	const [countrySearch, setCountrySearch] = useState("");
+	const [regionSearch, setRegionSearch] = useState("");
 
-	return <div className={styles.Countries}>{showCountries}</div>;
+	const { countries } = useContext(appContext);
+
+	const countryFilterHandler = filter => setCountrySearch(filter.toLowerCase());
+	const regionFilterHandler = filter => setRegionSearch(filter);
+
+	const showCountries = () =>
+		countries
+			.filter(country => country.population > 50_000_000)
+			.sort((countryA, countryB) => countryB.population - countryA.population)
+			.map(country => <CountryHome key={country.name} countryData={country} />);
+
+	const showFilteredCountries = () =>
+		countries
+			.filter(country => country.name.toLowerCase().includes(countrySearch))
+			.map(country => <CountryHome key={country.name} countryData={country} />);
+
+	const showRegionFilteredCountries = () =>
+		countries
+			.filter(country => country.region === regionSearch)
+			.map(country => <CountryHome key={country.name} countryData={country} />);
+
+	const displayFilter = () => {
+		if (countrySearch !== "" && !regionSearch) return showFilteredCountries();
+		if (countrySearch === "" && regionSearch)
+			return showRegionFilteredCountries();
+		return showCountries();
+	};
+
+	return (
+		<div className={styles.CountriesSection}>
+			<SearchCountry
+				countrySearchFilter={countryFilterHandler}
+				regionSearchFilter={regionFilterHandler}
+				resetRegion={setRegionSearch}
+			/>
+			<div className={styles.Countries}>{displayFilter()}</div>
+		</div>
+	);
 }
