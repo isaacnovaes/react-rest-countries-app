@@ -17,7 +17,7 @@ const formatLanguages = countryLanguageObject => {
 	let languages = [];
 
 	if (countryLanguageObject === undefined) {
-		languages.push("No language");
+		languages.push("No official language");
 		return languages;
 	}
 
@@ -29,21 +29,42 @@ const formatLanguages = countryLanguageObject => {
 		}
 	}
 
-	return languages;
+	return languages.join(", ");
+};
+
+const formatCurrencies = countryCurrencyObject => {
+	let currencies = [];
+
+	if (countryCurrencyObject === undefined) {
+		currencies.push("No official currency");
+		return currencies;
+	}
+
+	for (const key in countryCurrencyObject) {
+		if (Object.hasOwnProperty.call(countryCurrencyObject, key)) {
+			if (countryCurrencyObject) {
+				currencies.push(countryCurrencyObject[key].name);
+			}
+		}
+	}
+
+	return currencies.join(", ");
 };
 
 const formatCountries = country => {
 	const capital = country.capital ? country.capital[0] : "No capital";
 	const tld = country.tld ? country.tld[0] : "No tld(top-level-domain)";
-	let nativeName = formatNativeName(country.name.nativeName);
-	let languages = formatLanguages(country.languages);
+	const nativeName =
+		formatNativeName(country.name.nativeName) || "No native name";
+	const languages = formatLanguages(country.languages);
+	const currencies = formatCurrencies(country.currencies);
 
 	return {
 		borders: country.borders,
 		capital,
 		region: country.region,
-		subRegion: country.subregion,
-		currencies: country.currencies,
+		subRegion: country.subregion || "No region",
+		currencies,
 		languages,
 		flag: country.flags.svg,
 		map: country.maps.googleMaps,
@@ -51,6 +72,7 @@ const formatCountries = country => {
 		nativeName,
 		population: country.population,
 		tld,
+		code: country.cca3,
 	};
 };
 
