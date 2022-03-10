@@ -1,5 +1,4 @@
 .CountryHome {
-	// width/height = 380/240
 	$width: 320px;
 	display: block;
 	width: $width;
@@ -19,6 +18,7 @@
 		height: calc($width * 240 / 380);
 		object-fit: cover;
 		object-position: center;
+		box-shadow: 0px 1px 10px hsla(0, 0%, 52%, 0.212);
 	}
 
 	.CountryDetails {

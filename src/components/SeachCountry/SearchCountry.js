@@ -38,7 +38,10 @@ export default function SearchCountry({
 		setShowRegion(e.target.innerText);
 	};
 
-	const showDropDownHandler = () => setShowDropDown(prev => !prev);
+	const showDropDownHandler = () => {
+		countrySearchFilter("");
+		setShowDropDown(prev => !prev);
+	};
 
 	return (
 		<div className={searchContainerClasses}>
