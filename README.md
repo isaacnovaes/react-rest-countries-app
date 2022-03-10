@@ -1,5 +1,7 @@
 # Frontend Mentor - REST Countries API with color theme switcher solution
 
+[Live project](https://react-rest-country-isaac.netlify.app)
+
 ![Project Preview](./design/desktop-preview.jpg)
 
 ## Table of contents
@@ -37,7 +39,7 @@ Users should be able to:
 
 ### Links
 
-- [Live Site URL](https://your-live-site-url.com)
+- [Live Site URL](https://react-rest-country-isaac.netlify.app)
 
 ## My process
 
@@ -64,13 +66,13 @@ To see how you can add code snippets, see below:
 
 ```css
 .proud-of-this-css {
-color: papayawhip;
+	color: papayawhip;
 }
 ```
 
 ```js
 const proudOfThisFunc = () => {
-console.log("🎉");
+	console.log("🎉");
 };
 ```
 
