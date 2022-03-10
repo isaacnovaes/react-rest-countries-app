@@ -15,7 +15,7 @@ const reducer = (state, action) => {
 const ContextProvider = props => {
 	const initialState = {
 		countries: [],
-		theme: "dark",
+		theme: "light",
 	};
 
 	const [state, dispatch] = useReducer(reducer, initialState);
