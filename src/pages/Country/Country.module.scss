@@ -1,0 +1,126 @@
+.BackButtonContainer {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	column-gap: 10px;
+	width: 100px;
+	margin: 50px 0;
+	padding: 0.8rem;
+	border-radius: 0.8rem;
+	box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+	transition: 0.5s;
+
+	.BackButtonIcon {
+		background-image: url("./back-icon-ligth.svg");
+		background-size: cover;
+		width: 25px;
+		height: 25px;
+		transition: 0.5s 0.1s;
+	}
+	.BackButton {
+		border: none;
+		background-color: transparent;
+		font-size: var(--size-400);
+		transition: 0.5ss;
+		cursor: pointer;
+	}
+
+	&:hover {
+		width: 110px;
+		cursor: pointer;
+		border-radius: 77% 23% 22% 78% / 50% 49% 51% 50%;
+
+		.BackButtonIcon {
+			transform: translateX(-15px);
+		}
+	}
+}
+
+.BackButtonContainerDark {
+	background-color: var(--dark-blue);
+	box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+	.BackButtonIcon {
+		background-image: url("./back-icon-dark.svg");
+	}
+	.BackButton {
+		color: var(--white);
+	}
+}
+
+.CountryDetailContainer {
+	display: flex;
+	flex-direction: column;
+	row-gap: 50px;
+
+	.CountryFlag {
+		width: 100%;
+		max-width: 700px;
+		box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+	}
+
+	.CountryInformationContainer {
+		.CountryInformation {
+			display: flex;
+			flex-direction: column;
+			row-gap: 25px;
+
+			.MainInformation,
+			.AdditionalInformation {
+				display: flex;
+				flex-direction: column;
+				row-gap: 15px;
+
+				h1 {
+					font-weight: 800;
+					font-size: var(--size-600);
+				}
+
+				p {
+					font-weight: 400;
+					font-size: var(--size-500);
+					span {
+						font-weight: 600;
+					}
+				}
+			}
+			.AdditionalInformation {
+				h1 {
+					display: none;
+				}
+			}
+		}
+	}
+}
+
+.CountryDetailContainerDark {
+	.CountryFlag {
+		box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+	}
+	.CountryInformationContainer {
+		color: var(--white);
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	.CountryDetailContainer {
+		flex-direction: row;
+		row-gap: 0;
+		column-gap: 100px;
+
+		.CountryInformationContainer {
+			.CountryInformation {
+				flex-direction: row;
+				row-gap: 0;
+				column-gap: 20px;
+
+				.AdditionalInformation {
+					h1 {
+						display: block;
+						opacity: 0;
+						pointer-events: none;
+					}
+				}
+			}
+		}
+	}
+}
