@@ -2,15 +2,35 @@ import React, { useContext } from "react";
 import styles from "./Country.module.scss";
 import { useNavigate, useParams } from "react-router-dom";
 import appContext from "../../context/app-context";
+import BorderCountries from "../../components/BorderCountries/BorderCountries";
+import Loading from "../../components/Loading/Loading";
+import NoDataFound from "../../components/NoDataFound/NoDataFound";
 
 export default function Country() {
 	const { country: countryName } = useParams();
 
-	const navigate = useNavigate();
-
 	const { countries, theme } = useContext(appContext);
 
+	const navigate = useNavigate();
+
+	if (!countries.length) {
+		return <Loading />;
+	}
+
+	const countryExist = countries
+		.map(country => country.name)
+		.includes(countryName);
+
+	if (!countryExist) return <NoDataFound type="country" />;
+
 	const country = countries.find(country => country.name === countryName);
+
+	const borderCountriesCode = country.borders;
+
+	const borderCountries = countries.reduce((result, country) => {
+		if (borderCountriesCode.includes(country.code)) result.push(country.name);
+		return result;
+	}, []);
 
 	const comeBackHandler = () => navigate(-1);
 
@@ -21,10 +41,6 @@ export default function Country() {
 	const CountryDetailContainerClasses = `${styles.CountryDetailContainer} ${
 		theme === "dark" ? styles.CountryDetailContainerDark : ""
 	}`;
-
-	if (!country) {
-		return <h1>Country not found</h1>;
-	}
 
 	return (
 		<>
@@ -90,7 +106,17 @@ export default function Country() {
 							</p>
 						</div>
 					</div>
-					<div className={styles.CountryBorderContainer}></div>
+					<div className={styles.CountryBorderContainer}>
+						<p>{`Border ${
+							country.borders.length > 1 ? "Countries:" : "Country:"
+						}`}</p>
+						<div className={styles.BorderContainer}>
+							<BorderCountries
+								borders={borderCountries}
+								className={styles.BorderCountry}
+							/>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>
