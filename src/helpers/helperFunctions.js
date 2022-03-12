@@ -63,7 +63,7 @@ const formatCountries = country => {
 		borders: country.borders,
 		capital,
 		region: country.region,
-		subRegion: country.subregion || "No region",
+		subRegion: country.subregion || "No sub region",
 		currencies,
 		languages,
 		flag: country.flags.svg,
