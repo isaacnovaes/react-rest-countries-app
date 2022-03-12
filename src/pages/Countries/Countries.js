@@ -2,9 +2,10 @@ import React, { useContext, useState } from "react";
 import styles from "./Countries.module.scss";
 import CountryHome from "../../components/CountryHome/CountryHome";
 import SearchCountry from "../../components/SeachCountry/SearchCountry";
+import Loading from "../../components/Loading/Loading";
 import appContext from "../../context/app-context";
 
-export default function Countries() {
+export default function Countries({ isLoading }) {
 	const [countrySearch, setCountrySearch] = useState("");
 	const [regionSearch, setRegionSearch] = useState("");
 
@@ -38,12 +39,17 @@ export default function Countries() {
 
 	return (
 		<div className={styles.CountriesSection}>
-			<SearchCountry
-				countrySearchFilter={countryFilterHandler}
-				regionSearchFilter={regionFilterHandler}
-				resetRegion={setRegionSearch}
-			/>
-			<div className={styles.Countries}>{displayFilter()}</div>
+			{isLoading && <Loading />}
+			{!isLoading && (
+				<>
+					<SearchCountry
+						countrySearchFilter={countryFilterHandler}
+						regionSearchFilter={regionFilterHandler}
+						resetRegion={setRegionSearch}
+					/>
+					<div className={styles.Countries}>{displayFilter()}</div>
+				</>
+			)}
 		</div>
 	);
 }
