@@ -4,7 +4,9 @@ import appContext from "./app-context";
 const reducer = (state, action) => {
 	switch (action.type) {
 		case "toggle":
-			return { ...state, theme: state.theme === "dark" ? "light" : "dark" };
+			const theme = state.theme === "dark" ? "light" : "dark";
+			localStorage.setItem("theme", theme);
+			return { ...state, theme };
 		case "updateCountries":
 			return { ...state, countries: action.countries };
 		default:
@@ -15,7 +17,7 @@ const reducer = (state, action) => {
 const ContextProvider = props => {
 	const initialState = {
 		countries: [],
-		theme: "light",
+		theme: localStorage.getItem("theme") || "light",
 	};
 
 	const [state, dispatch] = useReducer(reducer, initialState);
