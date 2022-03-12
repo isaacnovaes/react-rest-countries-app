@@ -60,7 +60,7 @@ const formatCountries = country => {
 	const currencies = formatCurrencies(country.currencies);
 
 	return {
-		borders: country.borders,
+		borders: country.borders || [],
 		capital,
 		region: country.region,
 		subRegion: country.subregion || "No sub region",
