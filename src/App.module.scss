@@ -4,6 +4,7 @@
 	background-color: var(--very-light-gray);
 	min-height: 100vh;
 	transition: 0.5s;
+	padding-bottom: 50px;
 
 	main {
 		@include mixins.container;
