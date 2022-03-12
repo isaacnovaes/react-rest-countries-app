@@ -107,15 +107,23 @@ export default function Country() {
 						</div>
 					</div>
 					<div className={styles.CountryBorderContainer}>
-						<p>{`Border ${
-							country.borders.length > 1 ? "Countries:" : "Country:"
-						}`}</p>
-						<div className={styles.BorderContainer}>
-							<BorderCountries
-								borders={borderCountries}
-								className={styles.BorderCountry}
-							/>
-						</div>
+						<p>
+							{`Border ${
+								country.borders.length > 1 ? "Countries:" : "Country:"
+							}`}
+							{country.borders.length === 0 && (
+								<span className={styles.NoBorder}> No border</span>
+							)}
+						</p>
+
+						{country.borders.length > 0 && (
+							<div className={styles.BorderContainer}>
+								<BorderCountries
+									borders={borderCountries}
+									className={styles.BorderCountry}
+								/>
+							</div>
+						)}
 					</div>
 				</div>
 			</div>
