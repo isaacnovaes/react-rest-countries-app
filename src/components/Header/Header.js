@@ -15,7 +15,7 @@ export default function Header() {
 	return (
 		<header className={headerClasses}>
 			<nav className={styles.Nav}>
-				<Link to="/countries"> Where in the world?</Link>
+				<Link to="/countries">Where in the world?</Link>
 				<div
 					className={styles.ToggleThemeContainer}
 					onClick={toggleThemeHandler}

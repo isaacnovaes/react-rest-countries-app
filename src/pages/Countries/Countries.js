@@ -25,7 +25,7 @@ export default function Countries({ isLoading }) {
 			country.name.toLowerCase().includes(countrySearch)
 		);
 		if (filteredCountries.length === 0) {
-			return <p className={styles.NoCountryFound}>No countries found</p>;
+			return <p className={styles.NoCountryFound}>No country found</p>;
 		} else {
 			return filteredCountries.map(country => (
 				<CountryHome key={country.name} countryData={country} />
