@@ -11,4 +11,23 @@
 		justify-content: center;
 		gap: 50px;
 	}
+
+	.NoCountryFound {
+		text-align: center;
+		margin-top: 100px;
+		font-size: var(--size-600);
+		font-weight: 600;
+		color: rgba(255, 0, 0, 0.678);
+		animation: animateError 0.8s 0.2s both;
+	}
+}
+@keyframes animateError {
+	from {
+		transform: translateX(-120px);
+		opacity: 0;
+	}
+	to {
+		transform: translateX(0);
+		opacity: 1;
+	}
 }

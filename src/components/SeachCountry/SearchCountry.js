@@ -34,6 +34,11 @@ export default function SearchCountry({
 		countrySearchFilter(inputTextRef.current.value);
 
 	const regionInputHandler = e => {
+		if (e.target.innerText === "Reset region filter") {
+			setShowRegion("");
+			resetRegion("");
+			return;
+		}
 		regionSearchFilter(e.target.innerText);
 		setShowRegion(e.target.innerText);
 	};
@@ -78,6 +83,7 @@ export default function SearchCountry({
 					<span>Asia</span>
 					<span>Europe</span>
 					<span>Oceania</span>
+					<span>Reset region filter</span>
 				</div>
 			</div>
 		</div>
