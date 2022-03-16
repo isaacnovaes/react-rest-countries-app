@@ -11,7 +11,10 @@ export default function CountryHome({ countryData }) {
 	}`;
 
 	return (
-		<Link to={`/countries/${countryData.name}`} className={countryHomeClasses}>
+		<Link
+			to={`/countries/${countryData.name.replaceAll(" ", "")}`}
+			className={countryHomeClasses}
+		>
 			<img src={countryData.flag} alt={`${countryData.name} flag`} />
 			<div className={styles.CountryDetails}>
 				<h1>{countryData.name}</h1>

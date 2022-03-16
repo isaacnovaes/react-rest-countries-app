@@ -7,7 +7,7 @@ export default function BorderCountries({ borders, className }) {
 			{borders.map(borderCountry => (
 				<Link
 					key={borderCountry}
-					to={`/countries/${borderCountry}`}
+					to={`/countries/${borderCountry.replaceAll(" ", "")}`}
 					className={className}
 				>
 					{borderCountry}

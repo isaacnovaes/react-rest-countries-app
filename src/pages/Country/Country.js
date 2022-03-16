@@ -18,12 +18,14 @@ export default function Country() {
 	}
 
 	const countryExist = countries
-		.map(country => country.name)
+		.map(country => country.name.replaceAll(" ", ""))
 		.includes(countryName);
 
 	if (!countryExist) return <NoDataFound type="country" />;
 
-	const country = countries.find(country => country.name === countryName);
+	const country = countries.find(
+		country => country.name.replaceAll(" ", "") === countryName
+	);
 
 	const borderCountriesCode = country.borders;
 
