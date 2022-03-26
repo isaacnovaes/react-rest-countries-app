@@ -53,6 +53,7 @@ Users should be able to:
 - [React](https://reactjs.org/) - JS library
 - React Router v6
 - [REST countries API](https://restcountries.com/#api-endpoints-v2)
+- [Framer motion](https://framer.com/motion)
 
 ### What I learned
 
