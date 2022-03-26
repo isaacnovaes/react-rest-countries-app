@@ -5,6 +5,7 @@
 	min-height: 100vh;
 	transition: 0.5s;
 	padding-bottom: 50px;
+	overflow: hidden; // route animation
 
 	main {
 		@include mixins.container;

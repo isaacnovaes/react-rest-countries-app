@@ -5,6 +5,7 @@ import appContext from "../../context/app-context";
 import BorderCountries from "../../components/BorderCountries/BorderCountries";
 import Loading from "../../components/Loading/Loading";
 import NoDataFound from "../../components/NoDataFound/NoDataFound";
+import { motion } from "framer-motion";
 
 export default function Country() {
 	const { country: countryName } = useParams();
@@ -45,7 +46,12 @@ export default function Country() {
 	}`;
 
 	return (
-		<>
+		<motion.div
+			initial={{ x: "100vw", opacity: 0 }}
+			animate={{ x: 0, opacity: 1 }}
+			exit={{ x: "-100vw", opacity: 0 }}
+			transition={{ duration: 0.4, type: "spring", bounce: 0.3 }}
+		>
 			<div className={BackButtonContainerClasses} onClick={comeBackHandler}>
 				<span className={styles.BackButtonIcon}></span>
 				<button type="button" className={styles.BackButton}>
@@ -129,6 +135,6 @@ export default function Country() {
 					</div>
 				</div>
 			</div>
-		</>
+		</motion.div>
 	);
 }

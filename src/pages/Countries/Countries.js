@@ -1,9 +1,10 @@
 import React, { useContext, useState } from "react";
 import styles from "./Countries.module.scss";
 import CountryHome from "../../components/CountryHome/CountryHome";
-import SearchCountry from "../../components/SeachCountry/SearchCountry";
+import SearchCountry from "../../components/SearchCountry/SearchCountry.js";
 import Loading from "../../components/Loading/Loading";
 import appContext from "../../context/app-context";
+import { motion } from "framer-motion";
 
 export default function Countries({ isLoading }) {
 	const [countrySearch, setCountrySearch] = useState("");
@@ -46,7 +47,13 @@ export default function Countries({ isLoading }) {
 	};
 
 	return (
-		<div className={styles.CountriesSection}>
+		<motion.div
+			className={styles.CountriesSection}
+			initial={{ x: "100vw", opacity: 0 }}
+			animate={{ x: 0, opacity: 1 }}
+			exit={{ x: "-100vw", opacity: 0 }}
+			transition={{ duration: 0.4, type: "spring", bounce: 0.3 }}
+		>
 			{isLoading && <Loading />}
 			{!isLoading && (
 				<>
@@ -55,9 +62,16 @@ export default function Countries({ isLoading }) {
 						regionSearchFilter={regionFilterHandler}
 						resetRegion={setRegionSearch}
 					/>
-					<div className={styles.Countries}>{displayFilter()}</div>
+					<motion.div
+						className={styles.Countries}
+						initial={{ y: 50, opacity: 0 }}
+						animate={{ y: 0, opacity: 1 }}						
+						layout
+					>
+						{displayFilter()}
+					</motion.div>
 				</>
 			)}
-		</div>
+		</motion.div>
 	);
 }
