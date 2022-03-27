@@ -4,7 +4,7 @@ import CountryHome from "../../components/CountryHome/CountryHome";
 import SearchCountry from "../../components/SearchCountry/SearchCountry.js";
 import Loading from "../../components/Loading/Loading";
 import appContext from "../../context/app-context";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 export default function Countries({ isLoading }) {
 	const [countrySearch, setCountrySearch] = useState("");
@@ -62,13 +62,8 @@ export default function Countries({ isLoading }) {
 						regionSearchFilter={regionFilterHandler}
 						resetRegion={setRegionSearch}
 					/>
-					<motion.div
-						className={styles.Countries}
-						initial={{ y: 50, opacity: 0 }}
-						animate={{ y: 0, opacity: 1 }}						
-						layout
-					>
-						{displayFilter()}
+					<motion.div className={styles.Countries}>
+						<AnimatePresence>{displayFilter()}</AnimatePresence>
 					</motion.div>
 				</>
 			)}

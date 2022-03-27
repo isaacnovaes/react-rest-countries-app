@@ -12,7 +12,10 @@ export default function CountryHome({ countryData }) {
 	}`;
 
 	return (
-		<motion.div layout transition={{ layout: { duration: 0.4 } }}>
+		<motion.div
+			layout
+			transition={{ type: "tween", duration: 0.5, ease: "backInOut" }}
+		>
 			<Link
 				to={`/countries/${countryData.name.replaceAll(" ", "")}`}
 				className={countryHomeClasses}
