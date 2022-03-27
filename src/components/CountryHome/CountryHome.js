@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import styles from "./CountryHome.module.scss";
 import { Link } from "react-router-dom";
 import appContext from "../../context/app-context";
-import { motion } from "framer-motion";
 
 export default function CountryHome({ countryData }) {
 	const context = useContext(appContext);
@@ -12,33 +11,28 @@ export default function CountryHome({ countryData }) {
 	}`;
 
 	return (
-		<motion.div
-			layout
-			transition={{ type: "tween", duration: 0.5, ease: "backInOut" }}
+		<Link
+			to={`/countries/${countryData.name.replaceAll(" ", "")}`}
+			className={countryHomeClasses}
 		>
-			<Link
-				to={`/countries/${countryData.name.replaceAll(" ", "")}`}
-				className={countryHomeClasses}
-			>
-				<img src={countryData.flag} alt={`${countryData.name} flag`} />
-				<div className={styles.CountryDetails}>
-					<h1>{countryData.name}</h1>
-					<div className={styles.Details}>
-						<span className={styles.Detail}>
-							<span className={styles.DetailBold}>Population: </span>
-							{countryData.population.toLocaleString()}
-						</span>
-						<span className={styles.Detail}>
-							<span className={styles.DetailBold}>Region: </span>
-							{countryData.region}
-						</span>
-						<span className={styles.Detail}>
-							<span className={styles.DetailBold}>Capital: </span>
-							{countryData.capital}
-						</span>
-					</div>
+			<img src={countryData.flag} alt={`${countryData.name} flag`} />
+			<div className={styles.CountryDetails}>
+				<h1>{countryData.name}</h1>
+				<div className={styles.Details}>
+					<span className={styles.Detail}>
+						<span className={styles.DetailBold}>Population: </span>
+						{countryData.population.toLocaleString()}
+					</span>
+					<span className={styles.Detail}>
+						<span className={styles.DetailBold}>Region: </span>
+						{countryData.region}
+					</span>
+					<span className={styles.Detail}>
+						<span className={styles.DetailBold}>Capital: </span>
+						{countryData.capital}
+					</span>
 				</div>
-			</Link>
-		</motion.div>
+			</div>
+		</Link>
 	);
 }
