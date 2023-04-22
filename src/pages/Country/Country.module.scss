@@ -11,7 +11,7 @@
     transition: 0.5s;
 
     .BackButtonIcon {
-        background-image: url('./back-icon-ligth.svg');
+        background-image: url('./back-icon-light.svg');
         background-size: cover;
         width: 25px;
         height: 25px;
@@ -22,7 +22,7 @@
         border: none;
         background-color: transparent;
         font-size: var(--size-400);
-        transition: 0.5ss;
+        transition: 0.5s;
         cursor: pointer;
     }
 
