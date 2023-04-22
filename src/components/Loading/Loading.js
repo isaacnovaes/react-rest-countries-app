@@ -1,24 +1,23 @@
-import React, { useContext } from "react";
-import appContext from "../../context/app-context";
-import styles from "./Loading.module.scss";
+import { useTheme } from '../../context/hooks';
+import styles from './Loading.module.scss';
 
 export default function Loading() {
-	const { theme } = useContext(appContext);
+    const theme = useTheme();
 
-	const loadingClasses = `${styles.ldsRoller} ${
-		theme === "dark" ? styles.ldsRollerDark : ""
-	}`;
+    const loadingClasses = `${styles.ldsRoller} ${
+        theme === 'dark' ? styles.ldsRollerDark : ''
+    }`;
 
-	return (
-		<div className={loadingClasses}>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-			<div></div>
-		</div>
-	);
+    return (
+        <div className={loadingClasses}>
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+            <div />
+        </div>
+    );
 }

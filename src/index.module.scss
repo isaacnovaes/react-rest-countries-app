@@ -1,38 +1,38 @@
-@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 :root {
-	--dark-blue: hsl(209, 23%, 22%); //(Dark Mode Elements)
-	--white: hsl(0, 0%, 100%); //(Light Mode Elements & Dark Mode Text )
-	--very-dark-blue-bg: hsl(207, 26%, 17%); //(Dark Mode Background)
-	--very-light-gray: hsl(0, 0%, 98%); //(Light Mode Background)
-	--very-dark-blue-text: hsl(200, 15%, 8%); //(Light Mode Text)
-	--dark-gray: hsl(0, 0%, 52%); //(Light Mode Input)
-	--box-shadow-light: hsla(0, 0%, 52%, 0.287); // Light Mode Box Shadow
-	--box-shadow-dark: hsla(0, 0%, 0%, 0.226); // Dark Mode Box Shadow
+    --dark-blue: hsl(209, 23%, 22%); //(Dark Mode Elements)
+    --white: hsl(0, 0%, 100%); //(Light Mode Elements & Dark Mode Text )
+    --very-dark-blue-bg: hsl(207, 26%, 17%); //(Dark Mode Background)
+    --very-light-gray: hsl(0, 0%, 98%); //(Light Mode Background)
+    --very-dark-blue-text: hsl(200, 15%, 8%); //(Light Mode Text)
+    --dark-gray: hsl(0, 0%, 52%); //(Light Mode Input)
+    --box-shadow-light: hsla(0, 0%, 52%, 0.287); // Light Mode Box Shadow
+    --box-shadow-dark: hsla(0, 0%, 0%, 0.226); // Dark Mode Box Shadow
 
-	--font-family: "Nunito Sans", sans-serif;
+    --font-family: 'Nunito Sans', sans-serif;
 
-	--size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
-	--size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
-	--size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
-	--size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
-	--size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
-	--size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
-	--size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
-	--size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+    --size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
+    --size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
+    --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
+    --size-600: clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem);
+    --size-700: clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem);
+    --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
+    --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
+    --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
 }
 
 html {
-	box-sizing: border-box;
-	line-height: 1.15;
-	-webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
-	font-size: 14px;
-	font-family: var(--font-family);
-	font-weight: 300;
+    box-sizing: border-box;
+    line-height: 1.15;
+    -webkit-text-size-adjust: 100%; /* Prevent adjustments of font size after orientation changes in iOS. */
+    font-size: 14px;
+    font-family: var(--font-family);
+    font-weight: 300;
 
-	&:focus-within {
-		scroll-behavior: smooth;
-	}
+    &:focus-within {
+        scroll-behavior: smooth;
+    }
 }
 
 /**
@@ -44,23 +44,23 @@ html {
 *,
 *::before,
 *::after {
-	box-sizing: inherit;
-	margin: 0;
-	padding: 0;
-	font-size: 100%;
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
 }
 
 body {
-	min-height: 100vh;
+    min-height: 100vh;
 }
 
 /* Remove the border on images inside links in IE 10. */
 img {
-	border-style: none;
+    border-style: none;
 }
 
 a {
-	text-decoration: none;
+    text-decoration: none;
 }
 
 /**
@@ -70,23 +70,23 @@ a {
 button,
 input,
 textarea {
-	appearance: none;
+    appearance: none;
 }
 
 /* Remove all animations, transitions, and smooth scroll for people that prefer not to see them */
 @media (prefers-reduced-motion: reduce) {
-	html:focus-within {
-		scroll-behavior: auto;
-	}
+    html:focus-within {
+        scroll-behavior: auto;
+    }
 
-	*,
-	*::before,
-	*::after {
-		animation-duration: 0.01ms !important;
-		animation-iteration-count: 1 !important;
-		transition-duration: 0.01ms !important;
-		scroll-behavior: auto !important;
-	}
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
 }
 
 /* Scroll bar style 
