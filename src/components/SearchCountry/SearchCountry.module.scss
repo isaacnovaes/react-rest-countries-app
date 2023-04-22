@@ -1,188 +1,189 @@
-@use "../../mixins.module.scss";
+@use '../../mixins.module.scss';
 
 .SearchContainer {
-	@include mixins.flex-space-between-center;
-	margin-top: 50px;
-	position: relative;
-	z-index: 5;
+    @include mixins.flex-space-between-center;
+    margin-top: 50px;
+    position: relative;
+    z-index: 5;
 
-	.textInputContainer {
-		display: flex;
-		column-gap: 20px;
-		width: 50%;
-		max-width: 500px;
-		padding: 0.8rem;
-		background-color: var(--white);
-		box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
-		border-radius: 0.8rem;
+    .textInputContainer {
+        display: flex;
+        column-gap: 20px;
+        width: 50%;
+        max-width: 500px;
+        padding: 0.8rem;
+        background-color: var(--white);
+        box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+        border-radius: 0.8rem;
 
-		@mixin icon {
-			width: 25px;
-			height: 25px;
-			background-size: cover;
-		}
+        @mixin icon {
+            width: 25px;
+            height: 25px;
+            background-size: cover;
+        }
 
-		.IconSearch {
-			@include icon;
-			background: url("./search-icon-light.svg") center no-repeat;
-		}
+        .IconSearch {
+            @include icon;
+            background: url('./search-icon-light.svg') center no-repeat;
+        }
 
-		input {
-			width: 80%;
-			border: none;
-			padding: 0.5rem;
-			transition: 0.5s;
-		}
+        input {
+            width: 80%;
+            border: none;
+            padding: 0.5rem;
+            transition: 0.5s;
+        }
 
-		.IconCancel {
-			@include icon;
-			background: url("./search-close-icon-light.svg") center no-repeat;
-			opacity: 0;
-			transform: translateX(20px);
-			transition: 0.5s;
+        .IconCancel {
+            @include icon;
+            background: url('./search-close-icon-light.svg') center no-repeat;
+            opacity: 0;
+            transform: translateX(20px);
+            transition: 0.5s;
 
-			&:hover {
-				cursor: pointer;
-			}
-		}
+            &:hover {
+                cursor: pointer;
+            }
+        }
 
-		.ShowCancelIcon {
-			transform: translateX(0);
-			opacity: 1;
-		}
-	}
+        .ShowCancelIcon {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
 
-	.RegionInputContainer {
-		position: relative;
-		color: var(--very-dark-blue-text);
-		font-weight: 600;
-		font-size: var(--size-400);
-		width: 270px;
+    .RegionInputContainer {
+        position: relative;
+        color: var(--very-dark-blue-text);
+        font-weight: 600;
+        font-size: var(--size-400);
+        width: 270px;
 
-		&:hover {
-			cursor: pointer;
-		}
+        &:hover {
+            cursor: pointer;
+        }
 
-		.Region {
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-			padding: 14px 20px;
-			column-gap: 30px;
-			box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
-			border-radius: 0.8rem;
+        .Region {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 14px 20px;
+            column-gap: 30px;
+            box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+            border-radius: 0.8rem;
 
-			.Icon {
-				content: " ";
-				background: url("./region-search-icon-light.svg") center no-repeat;
-				background-size: cover;
-				width: 18px;
-				height: 18px;
-				transition: 0.5s;
-			}
-		}
+            .Icon {
+                content: ' ';
+                background: url('./region-search-icon-light.svg') center
+                    no-repeat;
+                background-size: cover;
+                width: 18px;
+                height: 18px;
+                transition: 0.5s;
+            }
+        }
 
-		.DropDownContainer {
-			display: none;
-			flex-direction: column;
-			width: 100%;
-			background-color: var(--white);
-			box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
-			border-radius: 0.8rem;
-			margin-top: 20px;
-			position: absolute;
-			overflow: hidden;
-			animation: animateDropDown 1s backwards;
+        .DropDownContainer {
+            display: none;
+            flex-direction: column;
+            width: 100%;
+            background-color: var(--white);
+            box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+            border-radius: 0.8rem;
+            margin-top: 20px;
+            position: absolute;
+            overflow: hidden;
+            animation: animateDropDown 1s backwards;
 
-			span {
-				transition: 0.5s;
-				padding: 20px;
+            span {
+                transition: 0.5s;
+                padding: 20px;
 
-				&:hover {
-					background-color: hsl(0, 1%, 74%);
-					opacity: 0.8;
-				}
-			}
-		}
-	}
+                &:hover {
+                    background-color: hsl(0, 1%, 74%);
+                    opacity: 0.8;
+                }
+            }
+        }
+    }
 }
 
 @keyframes animateDropDown {
-	from {
-		transform: translateY(50px);
-	}
-	to {
-		transform: translateY(0);
-	}
+    from {
+        transform: translateY(50px);
+    }
+    to {
+        transform: translateY(0);
+    }
 }
 
 .SearchContainerShowDropDown {
-	.RegionInputContainer {
-		.Region {
-			.Icon {
-				transform: rotateX(-180deg);
-			}
-		}
-		.DropDownContainer {
-			display: flex;
-		}
-	}
+    .RegionInputContainer {
+        .Region {
+            .Icon {
+                transform: rotateX(-180deg);
+            }
+        }
+        .DropDownContainer {
+            display: flex;
+        }
+    }
 }
 
 .SearchContainerDark {
-	.textInputContainer {
-		background-color: var(--dark-blue);
-		box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+    .textInputContainer {
+        background-color: var(--dark-blue);
+        box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
 
-		.IconSearch {
-			background-image: url("./search-icon-dark.svg");
-		}
+        .IconSearch {
+            background-image: url('./search-icon-dark.svg');
+        }
 
-		input {
-			background-color: inherit;
-			color: var(--white);
+        input {
+            background-color: inherit;
+            color: var(--white);
 
-			&::placeholder {
-				color: var(--white);
-			}
-		}
+            &::placeholder {
+                color: var(--white);
+            }
+        }
 
-		.IconCancel {
-			background-image: url("./search-close-icon-dark.svg");
-		}
-	}
+        .IconCancel {
+            background-image: url('./search-close-icon-dark.svg');
+        }
+    }
 
-	.RegionInputContainer {
-		color: var(--white);
+    .RegionInputContainer {
+        color: var(--white);
 
-		.Region {
-			background-color: var(--dark-blue);
-			box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+        .Region {
+            background-color: var(--dark-blue);
+            box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
 
-			.Icon {
-				background-image: url("./region-search-icon-dark.svg");
-			}
-		}
+            .Icon {
+                background-image: url('./region-search-icon-dark.svg');
+            }
+        }
 
-		.DropDownContainer {
-			background-color: var(--dark-blue);
-			box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+        .DropDownContainer {
+            background-color: var(--dark-blue);
+            box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
 
-			span:hover {
-				background-color: hsl(208, 22%, 15%);
-			}
-		}
-	}
+            span:hover {
+                background-color: hsl(208, 22%, 15%);
+            }
+        }
+    }
 }
 
 @media screen and (max-width: 726px) {
-	.SearchContainer {
-		flex-direction: column;
-		align-items: flex-start;
-		row-gap: 20px;
+    .SearchContainer {
+        flex-direction: column;
+        align-items: flex-start;
+        row-gap: 20px;
 
-		.textInputContainer {
-			width: 100%;
-		}
-	}
+        .textInputContainer {
+            width: 100%;
+        }
+    }
 }
