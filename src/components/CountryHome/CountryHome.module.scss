@@ -1,9 +1,10 @@
 .CountryHome {
     $width: 320px;
+
     display: block;
     width: $width;
     border-radius: 0.8rem;
-    box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+    box-shadow: 0 0 10px 2px var(--box-shadow-light);
     overflow: hidden;
     background-color: var(--white);
     transition: 0.5s;
@@ -18,7 +19,7 @@
         height: calc($width * 240 / 380);
         object-fit: cover;
         object-position: center;
-        box-shadow: 0px 1px 10px hsla(0, 0%, 52%, 0.212);
+        box-shadow: 0 1px 10px hsla(0deg, 0%, 52%, 0.212);
     }
 
     .CountryDetails {
@@ -51,7 +52,7 @@
 
 .CountryHomeDark {
     background-color: var(--dark-blue);
-    box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+    box-shadow: 0 0 10px 2px var(--box-shadow-dark);
 
     .CountryDetails {
         color: var(--white);

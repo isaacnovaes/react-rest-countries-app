@@ -1,17 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
 :root {
-    --dark-blue: hsl(209, 23%, 22%); //(Dark Mode Elements)
-    --white: hsl(0, 0%, 100%); //(Light Mode Elements & Dark Mode Text )
-    --very-dark-blue-bg: hsl(207, 26%, 17%); //(Dark Mode Background)
-    --very-light-gray: hsl(0, 0%, 98%); //(Light Mode Background)
-    --very-dark-blue-text: hsl(200, 15%, 8%); //(Light Mode Text)
-    --dark-gray: hsl(0, 0%, 52%); //(Light Mode Input)
-    --box-shadow-light: hsla(0, 0%, 52%, 0.287); // Light Mode Box Shadow
-    --box-shadow-dark: hsla(0, 0%, 0%, 0.226); // Dark Mode Box Shadow
-
-    --font-family: 'Nunito Sans', sans-serif;
-
+    --dark-blue: hsl(209deg, 23%, 22%); // (Dark Mode Elements)
+    --white: hsl(0deg, 0%, 100%); // (Light Mode Elements & Dark Mode Text )
+    --very-dark-blue-bg: hsl(207deg, 26%, 17%); // (Dark Mode Background)
+    --very-light-gray: hsl(0deg, 0%, 98%); // (Light Mode Background)
+    --very-dark-blue-text: hsl(200deg, 15%, 8%); // (Light Mode Text)
+    --dark-gray: hsl(0deg, 0%, 52%); // (Light Mode Input)
+    --box-shadow-light: hsla(0deg, 0%, 52%, 0.287); // Light Mode Box Shadow
+    --box-shadow-dark: hsla(0deg, 0%, 0%, 0.226); // Dark Mode Box Shadow
     --size-300: clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem);
     --size-400: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
     --size-500: clamp(1.09rem, 1rem + 0.47vw, 1.33rem);
@@ -20,6 +17,7 @@
     --size-800: clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem);
     --size-900: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
     --size-1000: clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem);
+    --font-family: 'Nunito Sans', sans-serif;
 }
 
 html {

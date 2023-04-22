@@ -7,7 +7,7 @@
     margin: 50px 0;
     padding: 0.8rem;
     border-radius: 0.8rem;
-    box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+    box-shadow: 0 0 10px 2px var(--box-shadow-light);
     transition: 0.5s;
 
     .BackButtonIcon {
@@ -17,6 +17,7 @@
         height: 25px;
         transition: 0.5s 0.1s;
     }
+
     .BackButton {
         color: var(--very-dark-blue-text);
         border: none;
@@ -39,10 +40,12 @@
 
 .BackButtonContainerDark {
     background-color: var(--dark-blue);
-    box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+    box-shadow: 0 0 10px 2px var(--box-shadow-dark);
+
     .BackButtonIcon {
         background-image: url('./back-icon-dark.svg');
     }
+
     .BackButton {
         color: var(--white);
     }
@@ -57,7 +60,7 @@
         align-self: flex-start;
         width: 100%;
         max-width: 700px;
-        box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+        box-shadow: 0 0 10px 2px var(--box-shadow-light);
         max-height: 600px;
     }
 
@@ -85,11 +88,13 @@
                 p {
                     font-weight: 400;
                     font-size: var(--size-500);
+
                     span {
                         font-weight: 600;
                     }
                 }
             }
+
             .AdditionalInformation {
                 h1 {
                     display: none;
@@ -123,7 +128,7 @@
                     color: var(--very-dark-blue-text);
                     font-size: var(--size-500);
                     background-color: var(--white);
-                    box-shadow: 0px 0px 10px 2px var(--box-shadow-light);
+                    box-shadow: 0 0 10px 2px var(--box-shadow-light);
                     padding: 10px 25px;
                     border-radius: 0.8rem;
                     transition: 0.5s;
@@ -139,13 +144,16 @@
 
 .CountryDetailContainerDark {
     .CountryFlag {
-        box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+        box-shadow: 0 0 10px 2px var(--box-shadow-dark);
     }
+
     .CountryInformationContainer {
         color: var(--white);
+
         .CountryBorderContainer {
             > p {
                 color: var(--white);
+
                 .NoBorder {
                     color: var(--white);
                 }
@@ -155,14 +163,14 @@
                 .BorderCountry {
                     color: var(--white);
                     background-color: var(--dark-blue);
-                    box-shadow: 0px 0px 10px 2px var(--box-shadow-dark);
+                    box-shadow: 0 0 10px 2px var(--box-shadow-dark);
                 }
             }
         }
     }
 }
 
-@media screen and (min-width: 1200px) {
+@media screen and (width >= 1200px) {
     .CountryDetailContainer {
         flex-direction: row;
         row-gap: 0;

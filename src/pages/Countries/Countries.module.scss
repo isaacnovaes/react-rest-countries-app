@@ -21,11 +21,13 @@
         animation: animateError 0.8s 0.2s both;
     }
 }
+
 @keyframes animateError {
     from {
         transform: translateX(-120px);
         opacity: 0;
     }
+    
     to {
         transform: translateX(0);
         opacity: 1;
