@@ -1,38 +1,53 @@
-import React, { useReducer } from "react";
-import appContext from "./app-context";
+import { useReducer, createContext } from 'react';
 
-const reducer = (state, action) => {
-	switch (action.type) {
-		case "toggle":
-			const theme = state.theme === "dark" ? "light" : "dark";
-			localStorage.setItem("theme", theme);
-			return { ...state, theme };
-		case "updateCountries":
-			return { ...state, countries: action.countries };
-		default:
-			return new Error("Something went wrong");
-	}
+const initialState = {
+    countries: [],
+    theme: localStorage.getItem('theme') || 'light',
 };
 
-const ContextProvider = props => {
-	const initialState = {
-		countries: [],
-		theme: localStorage.getItem("theme") || "light",
-	};
+export const AppContext = createContext(null);
+export const AppContextDispatch = createContext(null);
 
-	const [state, dispatch] = useReducer(reducer, initialState);
-
-	const data = {
-		countries: state.countries,
-		theme: state.theme,
-		toggleTheme: () => dispatch({ type: "toggle" }),
-		updateCountries: countries =>
-			dispatch({ type: "updateCountries", countries }),
-	};
-
-	return (
-		<appContext.Provider value={data}>{props.children}</appContext.Provider>
-	);
+const appReducer = (state, action) => {
+    switch (action.type) {
+        case 'toggle': {
+            const theme = state.theme === 'dark' ? 'light' : 'dark';
+            localStorage.setItem('theme', theme);
+            return { ...state, theme };
+        }
+        case 'updateCountries':
+            return { ...state, countries: action.countries };
+        default:
+            return new Error(
+                `Something went wrong. ${action.type} is not handled by AppContext.`
+            );
+    }
 };
 
-export default ContextProvider;
+export const ContextProvider = (props) => {
+    const [state, dispatch] = useReducer(appReducer, initialState);
+
+    // const data = useMemo(
+    //     () => ({
+    //         toggleTheme: () => dispatch({ type: 'toggle' }),
+    //         updateCountries: (countries) =>
+    //             dispatch({ type: 'updateCountries', countries }),
+    //     }),
+    //     []
+    // );
+    // const data = useMemo(
+    //     () => ({
+    //         state,
+    //         dispatch,
+    //     }),
+    //     [state]
+    // );
+
+    return (
+        <AppContext.Provider value={state}>
+            <AppContextDispatch.Provider value={dispatch}>
+                {props.children}
+            </AppContextDispatch.Provider>
+        </AppContext.Provider>
+    );
+};

@@ -1,11 +1,11 @@
 @mixin container {
-	width: 95%;
-	max-width: calc(4 * 320px + 3 * 50px);
-	margin: 0 auto;
+    width: 95%;
+    max-width: calc(4 * 320px + 3 * 50px);
+    margin: 0 auto;
 }
 
 @mixin flex-space-between-center {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
