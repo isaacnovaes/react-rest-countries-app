@@ -1,58 +1,58 @@
-@use "../../mixins.module.scss";
+@use '../../mixins.module.scss';
 
 .Header {
-	padding: 2rem;
-	box-shadow: 0 1px 10px 0px var(--box-shadow-light);
+    padding: 2rem;
+    box-shadow: 0 1px 10px 0px var(--box-shadow-light);
 
-	.Nav {
-		@include mixins.container;
-		@include mixins.flex-space-between-center;
+    .Nav {
+        @include mixins.container;
+        @include mixins.flex-space-between-center;
 
-		> a {
-			color: var(--very-dark-blue-text);
-			padding: 10px 0;
-			font-weight: 800;
-			font-size: var(--size-500);
-		}
+        > a {
+            color: var(--very-dark-blue-text);
+            padding: 10px 0;
+            font-weight: 800;
+            font-size: var(--size-500);
+        }
 
-		.ToggleThemeContainer {
-			@include mixins.flex-space-between-center;
-			column-gap: 10px;
+        .ToggleThemeContainer {
+            @include mixins.flex-space-between-center;
+            column-gap: 10px;
 
-			&:hover {
-				cursor: pointer;
-			}
+            &:hover {
+                cursor: pointer;
+            }
 
-			.Icon {
-				background: url("./moon-light.svg") no-repeat center;
-				background-size: cover;
-				height: 20px;
-				width: 20px;
-			}
+            .Icon {
+                background: url('./moon-light.svg') no-repeat center;
+                background-size: cover;
+                height: 20px;
+                width: 20px;
+            }
 
-			.ShowTheme {
-				font-weight: 600;
-			}
-		}
-	}
+            .ShowTheme {
+                font-weight: 600;
+            }
+        }
+    }
 }
 
 .HeaderDark {
-	box-shadow: 0 1px 10px 0px var(--box-shadow-dark);
-	background-color: var(--dark-blue);
+    box-shadow: 0 1px 10px 0px var(--box-shadow-dark);
+    background-color: var(--dark-blue);
 
-	.Nav {
-		> a {
-			color: var(--white);
-		}
+    .Nav {
+        > a {
+            color: var(--white);
+        }
 
-		.ToggleThemeContainer {
-			.Icon {
-				background-image: url("./moon-dark.svg");
-			}
-			.ShowTheme {
-				color: var(--white);
-			}
-		}
-	}
+        .ToggleThemeContainer {
+            .Icon {
+                background-image: url('./moon-dark.svg');
+            }
+            .ShowTheme {
+                color: var(--white);
+            }
+        }
+    }
 }
