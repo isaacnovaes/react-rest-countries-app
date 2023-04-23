@@ -27,22 +27,6 @@ const appReducer = (state, action) => {
 export const ContextProvider = (props) => {
     const [state, dispatch] = useReducer(appReducer, initialState);
 
-    // const data = useMemo(
-    //     () => ({
-    //         toggleTheme: () => dispatch({ type: 'toggle' }),
-    //         updateCountries: (countries) =>
-    //             dispatch({ type: 'updateCountries', countries }),
-    //     }),
-    //     []
-    // );
-    // const data = useMemo(
-    //     () => ({
-    //         state,
-    //         dispatch,
-    //     }),
-    //     [state]
-    // );
-
     return (
         <AppContext.Provider value={state}>
             <AppContextDispatch.Provider value={dispatch}>
