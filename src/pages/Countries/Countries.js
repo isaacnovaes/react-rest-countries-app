@@ -17,7 +17,7 @@ export default function Countries({ isLoading }) {
 
     const regionFilterHandler = (filter) => setRegionSearch(filter);
 
-    const showCountries = () =>
+    const showDefaultCountries = () =>
         countries
             .filter((country) => country.population > 50_000_000)
             .sort(
@@ -28,31 +28,41 @@ export default function Countries({ isLoading }) {
                 <CountryHome key={country.name} countryData={country} />
             ));
 
-    const showFilteredCountries = () => {
-        const filteredCountries = countries.filter((country) =>
+    const showFilteredCountries = (filterCountries) =>
+        filterCountries.filter((country) =>
             country.name.toLowerCase().includes(countrySearch)
         );
-        if (filteredCountries.length === 0) {
-            return <p className={styles.NoCountryFound}>No country found</p>;
-        }
-        return filteredCountries.map((country) => (
-            <CountryHome key={country.name} countryData={country} />
-        ));
-    };
 
-    const showRegionFilteredCountries = () =>
-        countries
-            .filter((country) => country.region === regionSearch)
-            .map((country) => (
-                <CountryHome key={country.name} countryData={country} />
-            ));
+    const showRegionFilteredCountries = (filterCountries) =>
+        filterCountries.filter((country) => country.region === regionSearch);
 
     const displayFilter = () => {
-        if (countrySearch !== '' && !regionSearch)
-            return showFilteredCountries();
-        if (countrySearch === '' && regionSearch)
-            return showRegionFilteredCountries();
-        return showCountries();
+        const hasCountrySearch = Boolean(countrySearch);
+        const hasRegionSearch = Boolean(regionSearch);
+
+        let countriesFilter = [];
+
+        if (hasCountrySearch) {
+            countriesFilter = showFilteredCountries(countries);
+        }
+
+        if (hasRegionSearch) {
+            if (hasCountrySearch) {
+                countriesFilter = showRegionFilteredCountries(countriesFilter);
+            } else {
+                countriesFilter = showRegionFilteredCountries(countries);
+            }
+        }
+
+        if (hasCountrySearch || hasRegionSearch) {
+            if (countriesFilter.length > 0) {
+                return countriesFilter.map((country) => (
+                    <CountryHome key={country.name} countryData={country} />
+                ));
+            }
+            return <p className={styles.NoCountryFound}>No country found</p>;
+        }
+        return showDefaultCountries();
     };
 
     return (

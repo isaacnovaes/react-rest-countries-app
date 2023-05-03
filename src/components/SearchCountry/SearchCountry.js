@@ -10,10 +10,9 @@ export default function SearchCountry({
     const [showCancelSearchButton, setShowCancelSearchButton] = useState(false);
     const [showDropDown, setShowDropDown] = useState(false);
     const [showRegion, setShowRegion] = useState('');
+    const [inputCountrySearch, setInputCountrySearch] = useState('');
 
     const theme = useTheme();
-
-    const inputTextRef = useRef(null);
 
     const timeoutRef = useRef(null);
 
@@ -23,19 +22,18 @@ export default function SearchCountry({
 
     const cancelCountrySearchHandler = () => {
         countrySearchFilter('');
-        inputTextRef.current.value = '';
+        setInputCountrySearch('');
         setShowCancelSearchButton(false);
     };
 
     const displayCancelSearchHandler = () => {
         setShowCancelSearchButton(true);
-        setShowRegion('');
-        resetRegion('');
     };
 
     const countryFilterHandler = (e) => {
         clearTimeout(timeoutRef.current);
         const inputText = e.target.value;
+        setInputCountrySearch(inputText);
         timeoutRef.current = setTimeout(() => {
             countrySearchFilter(inputText);
         }, 500);
@@ -52,7 +50,6 @@ export default function SearchCountry({
     };
 
     const showDropDownHandler = () => {
-        countrySearchFilter('');
         setShowDropDown((prev) => !prev);
     };
 
@@ -62,11 +59,11 @@ export default function SearchCountry({
                 <span className={styles.IconSearch} />
                 <input
                     type='text'
+                    value={inputCountrySearch}
                     placeholder='Search for a country...'
                     name='region'
-                    onChange={countryFilterHandler}
                     onFocus={displayCancelSearchHandler}
-                    ref={inputTextRef}
+                    onChange={countryFilterHandler}
                     autoComplete='off'
                 />
                 <span
@@ -82,7 +79,7 @@ export default function SearchCountry({
                 onClick={showDropDownHandler}
             >
                 <div className={styles.Region}>
-                    <p>{`${showRegion ? showRegion : 'Filter by region'}`}</p>
+                    <p>{`${showRegion || 'Filter by region'}`}</p>
                     <span className={styles.Icon} />
                 </div>
                 <div
