@@ -19,7 +19,9 @@ function App() {
     const location = useLocation(); // routes animation
 
     const fetchCountries = useCallback(async () => {
-        const request = await fetch('https://restcountries.com/v3.1/all');
+        const request = await fetch(
+            'https://restcountries.com/v3.1/all?fields=name,population,region,flags,capital,cca3,tld,languages,borders,currencies'
+        );
 
         if (!request.ok) {
             setFetchError(true);

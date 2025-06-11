@@ -86,10 +86,6 @@ export default function Country() {
                                 {country.region}
                             </p>
                             <p>
-                                <span>Sub Region: </span>
-                                {country.subRegion}
-                            </p>
-                            <p>
                                 <span>Capital: </span>
                                 {country.capital}
                             </p>
